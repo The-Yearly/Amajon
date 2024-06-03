@@ -20,7 +20,7 @@ import java.util.List;
 class Item_Placeholder{
     private String name;
     private int qty;
-    private String photo;
+    private String pic;
     private int price;
     public void setName(String name){
         this.name=name;
@@ -28,11 +28,11 @@ class Item_Placeholder{
     public void setPrice(int price){
         this.price=price;
     }
+    public void setPic(String pic){
+        this.pic=pic;
+    }
     public void setQty(int qty){
         this.qty=qty;
-    }
-    public void setPhoto(String photo){
-        this.photo=photo;
     }
     public String getName(){
         return(name);
@@ -43,8 +43,8 @@ class Item_Placeholder{
     public int getQty(){
         return(qty);
     }
-    public String getPhoto(){
-        return(photo);
+    public String getPic(){
+        return(pic);
     }
 
 }
@@ -57,20 +57,20 @@ public class Buy extends javax.swing.JFrame {
     /**
      * Creates new form Buy
      */
-    private Cart cart;
     private Cart Cart;
 
 
 
     // Constructor
     public Buy(Cart cart) {
-        this.cart = cart;
+        this.Cart = cart;
     }
     public Buy() {
         try{
             List itemnames=new ArrayList();
             List itemcosts=new ArrayList();
             List itemQtys=new ArrayList();
+            List itemPics=new ArrayList();
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/amajon","root","Arduino1");
@@ -80,8 +80,9 @@ public class Buy extends javax.swing.JFrame {
                 itemnames.add(Rs.getString(2));
                 itemcosts.add(Rs.getInt(3));
                 itemQtys.add(Rs.getInt(4));
+                itemPics.add(Rs.getString(5));
             }
-            initComponents(itemnames,itemcosts,itemQtys,stmt);
+            initComponents(itemnames,itemcosts,itemQtys,itemPics,stmt);
         }catch(Exception e){ System.out.println(e);}
     }
     public void reset(){
@@ -110,7 +111,7 @@ public class Buy extends javax.swing.JFrame {
     int c;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents(List itemnames,List itemcosts,List itemQtys,Statement stmt) {
+    private void initComponents(List itemnames,List itemcosts,List itemQtys,List itemPics,Statement stmt) {
         c=0;
 
         Item_Placeholder item1=new Item_Placeholder();
@@ -123,6 +124,7 @@ public class Buy extends javax.swing.JFrame {
             items[g].setName((String)itemnames.get(c));
             items[g].setPrice((int)itemcosts.get(c));
             items[g].setQty((int)itemQtys.get(c));
+            items[g].setPic((String)itemPics.get(c));
             c+=1;
             if(c>=itemnames.size()){
                 c=0;
@@ -250,7 +252,8 @@ public class Buy extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 100, 90, 60));
-
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\logo1..png"));
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\a.Amajon logo text.png"));
         jLabel12.setText("jLabel12");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 50, 50));
 
@@ -273,20 +276,15 @@ public class Buy extends javax.swing.JFrame {
         jLabel1.setOpaque(true);
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1520, 180));
 
-        jButton11.setBackground(java.awt.Color.black);
-        jButton11.setText("Back");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, -1, -1));
+
 
         jButton5.setBackground(java.awt.Color.black);
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14));
         jButton5.setLabel("Next");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt,items,itemnames,itemcosts,itemQtys);
+                jButton5ActionPerformed(evt,items,itemnames,itemcosts,itemQtys,itemPics);
             }
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 550, -1, -1));
@@ -374,8 +372,12 @@ public class Buy extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0,80));
         jPanel4.setPreferredSize(new java.awt.Dimension(210, 283));
-
+        jLabel14.setIcon(new javax.swing.ImageIcon(item4.getPic()));
+        jLabel5.setIcon(new javax.swing.ImageIcon(item2.getPic()));
+        jLabel13.setIcon(new javax.swing.ImageIcon(item3.getPic()));
+        jLabel17.setIcon(new javax.swing.ImageIcon(item5.getPic()));
         jLabel15.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setIcon(new javax.swing.ImageIcon(item1.getPic()));
         jLabel15.setFont(new java.awt.Font("Segoe UI Semilight", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText(item4.getName());
@@ -867,13 +869,14 @@ public class Buy extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt,Item_Placeholder[] items,List itemnames,List itemcosts,List itemQtys) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt,Item_Placeholder[] items,List itemnames,List itemcosts,List itemQtys,List itemPics) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         System.out.println("Next");
         for(int g=0;g<5;g++){
             items[g].setName((String)itemnames.get(c));
             items[g].setPrice((int)itemcosts.get(c));
             items[g].setQty((int)itemQtys.get(c));
+            items[g].setPic((String)itemPics.get(c));
             c+=1;
             System.out.println(items[g].getName());
             if(c>=itemnames.size()){
@@ -890,16 +893,18 @@ public class Buy extends javax.swing.JFrame {
         jLabel16.setText(String.valueOf(items[3].getPrice()));
         jLabel18.setText(items[4].getName());
         jLabel19.setText(String.valueOf(items[4].getPrice()));
+        jLabel6.setIcon(new javax.swing.ImageIcon(items[0].getPic()));
+        jLabel5.setIcon(new javax.swing.ImageIcon(items[1].getPic()));
+        jLabel13.setIcon(new javax.swing.ImageIcon(items[2].getPic()));
+        jLabel14.setIcon(new javax.swing.ImageIcon(items[3].getPic()));
+        jLabel17.setIcon(new javax.swing.ImageIcon(items[4].getPic()));
 
 
 
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Back");
-    }//GEN-LAST:event_jButton11ActionPerformed
+    //GEN-LAST:event_jButton11ActionPerformed
 
     /**
      * @param args the command line arguments

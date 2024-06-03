@@ -47,7 +47,7 @@ public class Amajon_Interface extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(738, 300, 110, 150));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\vighn\\Downloads\\Amajon-5-3-2024-1-removebg-previ.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\a.Amajon logo text.png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 160, 70));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,10 +117,10 @@ public class Amajon_Interface extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 150, 110, 70));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\vighn\\Downloads\\logo1..png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\logo1..png")); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 60, 60));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Images\\a.interface shopping cart image.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\a.interface shopping cart image.png")); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 320, 330, 270));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N

@@ -13,20 +13,30 @@ import java.util.*;
  *
  * @author vighn
  */
-class Returning_User{
+interface int_login{
+    void setUser(String uname);
+    void setPass(String password);
+    String getUser();
+    String getPass();
+}
+
+class Returning_User implements int_login{
     private String uname;
     private String password;
-    public void setUser(String uname){
-        this.uname=uname;
+
+    @Override
+    public void setUser(String uname) {
+        this.uname = uname;
     }
-    public void setPass(String password){
-        this.password=password;
+    @Override
+    public void setPass(String password) {
+        this.password = password;
     }
-    public String getPass(){
-        return(password);
+    public String getUser() {
+        return this.uname;
     }
-    public String getUser(){
-        return(uname);
+    public String getPass() {
+        return this.password;
     }
 }
 public class Login extends javax.swing.JFrame {
@@ -57,7 +67,6 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("login");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -166,7 +175,7 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 320, 380));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Images\\a.loginpage.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\a.loginpage.jpg")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 1070, 600));
 
         setSize(new java.awt.Dimension(1084, 607));

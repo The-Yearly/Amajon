@@ -65,12 +65,12 @@ public class Cart extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\vighn\\Downloads\\logo1..png")); // NOI18N
+        // NOI18N
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 60, 60));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\vighn\\Downloads\\Amajon-5-3-2024-1-removebg-previ.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\logo1..png"));
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Pictures\\Images\\a.Amajon logo text.png"));// NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 70));
 
         jPanel1.setBackground(new java.awt.Color(45, 44, 44));
